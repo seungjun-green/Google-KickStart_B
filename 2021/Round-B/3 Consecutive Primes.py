@@ -1,3 +1,10 @@
+'''
+Algorithm:
+1. get √(Z)
+2. get two prime numbers smaller than √(Z) and one big prime number bigger than √(Z) -> [a,b,c](increasing order)
+3. possible answers are product of a*b or b*c
+'''
+
 from math import sqrt
 from itertools import count, islice
 
