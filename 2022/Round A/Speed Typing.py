@@ -1,5 +1,4 @@
 class Solution:
-
     def checkSubSequence(self, I,P):
         ptr_i=ptr_p=0
 
