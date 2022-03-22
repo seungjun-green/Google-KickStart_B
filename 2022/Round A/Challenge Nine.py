@@ -1,33 +1,35 @@
 class Solution:
     def findSmllestOne(self,N):
-        given_sum = 0
 
+
+        # getting the new_number
+        curr_sum = 0
         for n in N:
-            given_sum+=int(n)
+            curr_sum+=int(n)
 
-
-        new_digit = 0
-
+        new_number = 0
         for i in range(0,10):
-            curr = i+given_sum
+            curr = i+curr_sum
             if curr%9==0:
                 new_digit = i
                 break
 
+        # inserting new number at right place
 
-        if new_digit == 0:
+        # if new_number is 0, insert 0 right before the most significant digit.
+        if new_number == 0:
             return (N[:1] + '0' + N[1:])
 
+        # iterating the N from the most significant digit, found the first digit that is bigger than new_numebr
+        # then insert the new_number right before it.
         for i in range(len(N)):
-            if new_digit < int(N[i]):
-                print(N[i])
-                return (N[:i] + str(new_digit) + N[i:])
+            if new_number < int(N[i]):
+                return (N[:i] + str(new_number) + N[i:])
             else:
                 pass
 
-
-
-        return (N+str(new_digit))
+        # if all digits in N is smaller than new_number, then insert the new number right before most significant digit.
+        return (N+str(new_number))
 
 
 t = int(input())
