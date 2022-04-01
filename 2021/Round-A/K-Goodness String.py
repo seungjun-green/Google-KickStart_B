@@ -1,27 +1,15 @@
-def solution(N, K, S):
-    target = K
-    currentPoint = 0
+class Solution:
+    def kGoodnessString(self, N, K, S):
+        curr = 0
+        for i in range(0, N//2):
+            if (S[i] != S[N-i-1]):
+                curr+=1
 
-    for i in range(0, N//2):
-        if S[i] != S[N-1-i]:
-            currentPoint += 1
-        else:
-            pass
+        return abs(K-curr)
 
-
-    if currentPoint == K:
-        return 0
-    else:
-        return abs(currentPoint-target)
-
-      
 t = int(input())
-for i in range(1, t+1):
-    temp = input().split()
-    N, K = [int(j) for j in temp]
-    temp = input().split()
-    temp = temp[0]
-    S = [c for c in temp]
-    res = solution(N, K, S)
-    print("Case #{}: {}".format(i, res))
-
+for i in range(1,t+1):
+    N, K = input().split()
+    S = input()
+    res = Solution().kGoodnessString(int(N), int(K), S)
+    print(f"Case #{i}: {res}")
